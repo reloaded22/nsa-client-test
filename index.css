@@ -1,0 +1,21 @@
+div {
+    margin: 20px;
+}
+
+a {
+    padding: 5px;
+}
+
+#submit, #avatar::file-selector-button {
+    margin-top: 10px;
+    border-radius: 15px;
+    background-color: darkorange;
+    padding: 5px 10px;
+    font-weight:bold
+}
+
+img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}

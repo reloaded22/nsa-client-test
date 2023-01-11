@@ -1,0 +1,27 @@
+En el front end con puro HTML, el evento se debe llamar exactamente "event", 
+ya que es una palabra reservada. Por lo tanto si se usa "e" o cualquier otra 
+variación no va a funcionar.
+
+   (e) => e.preventDefault()  // NO FUNCIONA
+   (event) => event.preventDefault()  // MANERA CORRECTA
+
+Recuerda que los eventos de "onclick", "onsubmit", etc deben llamar la función
+ya que si no la llaman el evento no funcionará:
+
+   onclick = "(event) => event.preventDefault()" // NO FUNCIONA
+   onclick = "((event) => event.preventDefault())(event)" // MANERA CORRECTA
+   // O también
+   onclick = "((e) => e.preventDefault())(event)" // MANERA CORRECTA
+
+Lo importante es que la palabra "event" se use en el llamado a la función principal
+dentro del "onclick"
+
+El "onclick" devuelve el mismo resultado tanto en el <button> como en el <form>
+Propiedad "target" (event.target): <button> 
+
+La diferencia la hace el "onsubmit" que se debe colocar en el <form>
+Propiedad "target" (event.target): <form>
+
+
+
+
