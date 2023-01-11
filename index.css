@@ -6,12 +6,16 @@ a {
     padding: 5px;
 }
 
-#submit, #avatar::file-selector-button {
+button, #avatar::file-selector-button {
     margin-top: 10px;
     border-radius: 15px;
     background-color: darkorange;
     padding: 5px 10px;
     font-weight:bold
+}
+
+button:hover, #avatar::file-selector-button:hover {
+    cursor: pointer;
 }
 
 img {
