@@ -1,6 +1,21 @@
-const user_div = document.getElementById("user");
+const msg_div = document.getElementById("msg")
+const user_div = document.getElementById("user")
 
-const API_URL = "http://localhost:3000/";
+let registration_status = localStorage.getItem("registration_status")
+console.log("\nregistration_status:")
+console.log(registration_status)
+if (registration_status.includes("username_1 dup key")) {
+  msg_div.innerHTML = "username already exists, choose a different one"
+} else if (registration_status.includes("alias_1 dup key")) {
+  msg_div.innerHTML = "alias already exists, choose a different one"
+} else if (registration_status.includes("is required")) {
+  msg_div.innerHTML = "Both Alias and Email are required"
+} else {
+  msg_div.innerHTML = registration_status;
+}
+
+
+const API_URL = "http://localhost:5500/";
 // Show all users fetching the API:
 fetch(API_URL)
   .then((response) => response.json())
@@ -25,6 +40,7 @@ const register = (e) => {
     .then((res) => res.json())
     .then((data) => {
       console.log(data.message)
+      localStorage.setItem("registration_status", data.message)
       window.location.reload()
     })
     .catch(err => console.error(err))
